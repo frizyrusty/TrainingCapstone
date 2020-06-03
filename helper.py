@@ -44,7 +44,7 @@ def plot_phone(data):
     
     # ---- Phone Service Customer
 
-    ax = _______.plot(kind = 'barh', color=['#53a4b1','#c34454'], figsize = (8,6))
+    ax = pd.crosstab(data['phone_service'], data['churn_label']).plot(kind = 'barh', color=['#53a4b1','#c34454'], figsize = (8,6))
 
     # Plot Configuration
     ax.xaxis.set_major_formatter(mtick.PercentFormatter())
@@ -65,7 +65,7 @@ def plot_internet(data):
 
     # ---- Internet Service Customer
 
-    ax = _______.plot(kind = 'barh', color=['#53a4b1','#c34454'], figsize = (8,6))
+    ax = pd.crosstab(data['internet_service'], data['churn_label']).plot(kind = 'barh', color=['#53a4b1','#c34454'], figsize = (8,6))
 
     # Plot Configuration
     ax.xaxis.set_major_formatter(mtick.PercentFormatter())
@@ -86,7 +86,7 @@ def plot_tenure_churn(data):
     
     # ---- Churn Rate by Tenure Group
 
-    ax = ______.plot(kind = 'bar', color=['#53a4b1','#c34454'], figsize=(8, 6))
+    ax = pd.crosstab(data['tenure_group'], data['churn_label']).plot(kind = 'bar', color=['#53a4b1','#c34454'], figsize=(8, 6))
 
     # Plot Configuration
     ax.yaxis.set_major_formatter(mtick.PercentFormatter())
@@ -108,7 +108,7 @@ def plot_tenure_cltv(data):
 
     # ---- Average Lifetime Value by Tenure
 
-    ax = ______.plot(color=['#333333','#b3b3b3'], figsize=(8, 6),style = '.--')
+    ax = pd.crosstab(data['tenure_months'], columns=data['churn_label'], values=(data['cltv']), aggfunc='mean').plot(color=['#333333','#b3b3b3'], figsize=(8, 6),style = '.--')
 
     # Plot Configuration
     plt.axes().get_xaxis().set_label_text('Tenure (in Months)')

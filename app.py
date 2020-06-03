@@ -9,7 +9,7 @@ import matplotlib
 matplotlib.use('Agg')
 
 
-from helper import load_telco, table_churn
+from helper import *
 
 app = Flask(__name__)
 
