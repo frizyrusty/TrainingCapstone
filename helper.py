@@ -6,7 +6,7 @@ import base64
 
 def load_telco():
     # Read data
-    telco = pd.read_csv('data/telcochurn.csv')
+    telco = pd.read_csv('D:/Documents/Training/Algoritma/Github/dac-telco/data/telcochurn.csv')
     
     # Adjust dtypes
     catcol = telco.select_dtypes('object').columns

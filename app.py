@@ -24,30 +24,30 @@ def index():
 	# ## churn rate & retaining customers
 	table_churn_res = table_churn(raw)
 	percent_churn = table_churn_res.loc['Yes', 'percent'].round(2)
-	percent_retain = table.loc['No', 'percent'].round(2)
+	percent_retain = table_churn_res.loc['No', 'percent'].round(2)
 	# ## average lifetime value
-	average_cltv = int(data['cltv'].mean())
+	average_cltv = int(raw['cltv'].mean())
 	# # compile card values as `card_data`
 	card_data = dict(
-			percent_churn = f'{percent_churn}%',
-			percent_retain = f'{percent_retain}%',
-			average_cltv = f'{average_cltv:,}'
-		)
+		percent_churn = f'{percent_churn}%',
+		percent_retain = f'{percent_retain}%',
+		average_cltv = f'{average_cltv:,}'
+	)
 
 	# # generate plot
-	# plot_phone_res = plot_phone(raw)
-	# plot_internet_res = plot_internet(raw)
-	# plot_tenure_cltv_res = plot_tenure_cltv(raw)
-	# plot_tenure_churn_res = plot_tenure_churn(raw)
+	plot_phone_res = plot_phone(raw)
+	plot_internet_res = plot_internet(raw)
+	plot_tenure_cltv_res = plot_tenure_cltv(raw)
+	plot_tenure_churn_res = plot_tenure_churn(raw)
 
 	# render to html
 	return render_template('index.html',
-		   card_data = card_data, 
-		#  plot_phone_res=plot_phone_res,
-		#  plot_internet_res=plot_internet_res,
-		#  plot_tenure_cltv_res=plot_tenure_cltv_res,
-		#  plot_tenure_churn_res=plot_tenure_churn_res
-		)
+		card_data = card_data, 
+		plot_phone_res=plot_phone_res,
+		plot_internet_res=plot_internet_res,
+		plot_tenure_cltv_res=plot_tenure_cltv_res,
+		plot_tenure_churn_res=plot_tenure_churn_res
+	)
 
 
 if __name__ == "__main__": 
