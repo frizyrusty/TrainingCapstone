@@ -10,22 +10,22 @@ def load_telco():
     
     # Adjust dtypes
     catcol = telco.select_dtypes('object').columns
-    telco[catcol] = telco[catcol].apply(lambda x: x.astype('______'))
+    telco[catcol] = telco[catcol].apply(lambda x: x.astype('category'))
     
     # Tenure Months to grouping categories
     def grouping_tenure(telco) :
-        if telco["_______"] <= 12 :
+        if telco["tenure_months"] <= 12 :
             return "< 1 Year"
-        elif (telco["_______"] > 12) & (telco["_______"] __ ____ ):
+        elif (telco["tenure_months"] > 12) & (telco["tenure_months"] <= 24):
             return "1-2 Year"
-        elif (telco["_______"] __ ____) & (telco["_______"] <= 48) :
+        elif (telco["tenure_months"] > 24) & (telco["tenure_months"] <= 48) :
             return "2-4 Year"
-        elif (telco["_______"] __ ____) & (telco["_______"] __ ____) :
+        elif (telco["tenure_months"] > 48) & (telco["tenure_months"] <= 60) :
             return "4-5 Year"
         else:
             return "> 5 Year"
         
-    telco["tenure_group"] = telco.apply(lambda telco: _______(telco), axis = 1)
+    telco["tenure_group"] = telco.apply(lambda telco: grouping_tenure(telco), axis = 1)
     
     # Adjust category order
     tenure_group = ["< 1 Year", "1-2 Year", "2-4 Year", "4-5 Year", "> 5 Year"]
@@ -35,9 +35,9 @@ def load_telco():
 
 def table_churn(data):
     table = pd.crosstab(
-    index = data['_______'],
+    data['churn_label'],
     columns = 'percent',
-    normalize = _______)*100
+    normalize = True)*100
     return(table)
 
 def plot_phone(data):
