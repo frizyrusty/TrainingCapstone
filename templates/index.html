@@ -113,7 +113,13 @@
 				</div>
 
 				<div id="Own" class="tabcontent">
-				  <!-- Define your own analysis -->
+				  <br>
+				  <h3 style="color: #333333;text-align:center">Citizent Retainer Rate By Gender Group</h3>
+				  <div class="img-container">
+				  	{% if funded_plot != None %}
+                    <img src="data:image/png;base64,{{ plot_self_res }}" style="width:100%;">
+					  {% endif %}
+				  </div>
 				</div>
 
 			</div>

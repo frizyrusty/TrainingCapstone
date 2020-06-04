@@ -39,6 +39,7 @@ def index():
 	plot_internet_res = plot_internet(raw)
 	plot_tenure_cltv_res = plot_tenure_cltv(raw)
 	plot_tenure_churn_res = plot_tenure_churn(raw)
+ 	plot_self_res = plot_self(raw)
 
 	# render to html
 	return render_template('index.html',
@@ -46,7 +47,8 @@ def index():
 		plot_phone_res=plot_phone_res,
 		plot_internet_res=plot_internet_res,
 		plot_tenure_cltv_res=plot_tenure_cltv_res,
-		plot_tenure_churn_res=plot_tenure_churn_res
+		plot_tenure_churn_res=plot_tenure_churn_res, 
+		plot_self_res = plot_self_res
 	)
 
 
