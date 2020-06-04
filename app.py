@@ -1,7 +1,7 @@
-from dotenv import load_dotenv
-# dotenv_path = join(dirname(__file__), '.env')  # Path to .env file
-dotenv_path = '.env'
-load_dotenv(dotenv_path)
+# from dotenv import load_dotenv
+# # dotenv_path = join(dirname(__file__), '.env')  # Path to .env file
+# dotenv_path = '.env'
+# load_dotenv(dotenv_path)
 from flask import Flask, render_template
 import pandas as pd
 import matplotlib.pyplot as plt
