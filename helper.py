@@ -138,10 +138,13 @@ def plot_self(data):
     # Plot Configuration
     ax.xaxis.set_major_formatter(mtick.PercentFormatter())
     plt.axes().get_yaxis().set_label_text('')
-    plt.xticks(rotation = 360)
+    plt.xticks(rotation = 45)
+    plt.yticks(rotation = 45)
     plt.legend(['Not Senior', 'Senior'],fancybox=True,shadow=True)
     plt.title('Citizent Retainer Rate By Gender Group')
-
+    ax.set_ylabel('Gender')
+    ax.set_xlabel('Percent(%)')
+    
     # Save png file to IO buffer
     figfile = BytesIO()
     plt.savefig(figfile, format='png')
