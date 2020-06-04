@@ -140,7 +140,7 @@ def plot_self(data):
     plt.axes().get_yaxis().set_label_text('')
     plt.xticks(rotation = 45)
     plt.yticks(rotation = 45)
-    plt.legend(['Not Senior', 'Senior'],fancybox=True,shadow=True)
+    plt.legend(['Not Senior (<65 yo)', 'Senior (>=65 yo)'],fancybox=True,shadow=True)
     plt.title('Citizent Retainer Rate By Gender Group')
     ax.set_ylabel('Gender')
     ax.set_xlabel('Percent(%)')
