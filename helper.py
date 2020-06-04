@@ -129,14 +129,15 @@ def plot_tenure_cltv(data):
 def plot_self(data):
     
     # ---- Citizent Retainer Rate By Gender Group
+    
     data2 = data.copy()
     data2 = data2[data['churn_label'] == 'No']
     _df = pd.crosstab(data2['gender'], data2['senior_citizen'], normalize=True)*100
     ax = _df.plot(kind = 'barh', color=['#53a4b1','#c34454'], figsize=(8, 6))
 
     # Plot Configuration
-    ax.yaxis.set_major_formatter(mtick.PercentFormatter())
-    plt.axes().get_xaxis().set_label_text('')
+    ax.xaxis.set_major_formatter(mtick.PercentFormatter())
+    plt.axes().get_yaxis().set_label_text('')
     plt.xticks(rotation = 360)
     plt.legend(['Not Senior', 'Senior'],fancybox=True,shadow=True)
     plt.title('Citizent Retainer Rate By Gender Group')
